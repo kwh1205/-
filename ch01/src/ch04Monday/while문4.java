@@ -1,5 +1,6 @@
 package ch04Monday;
 
+//시작과 끝이 명확한 횟수를 알수 있을땐 for문을 사용
 public class while문4 {
 	public static void main(String[] args) {
 
@@ -9,6 +10,7 @@ public class while문4 {
 
 		System.out.println("구구단");
 		while (i <= 9) {
+			//
 			while (j <= 9) {// for(int j=2;j<=9;j++)
 				System.out.printf("%d*%d =%d\t", j, i, (i * j));
 				j++;
@@ -16,7 +18,7 @@ public class while문4 {
 			}
 			j = 2;// j값 재 초기화 for문은 블럭을 시작할때마다 초기화 되지만
 			// while문은 초기화를 별도로 해줘야함
-			i++;
+			i++;// 증감 처리
 			System.out.println();
 		}
 
