@@ -16,8 +16,11 @@ public class while문5 {
 				System.out.println("-------------");
 				System.out.println("선택:");
 			}
-			keyCod = System.in.read();
+			keyCod = System.in.read();// System.in.read 값은 1/2/3 이아닌 아스키코드 변환 값
 
+			// 인 1=49 2=50 3=51 ㄹ로 받음
+			// keyCod = System.in.read()-'0';으로하면 1은 1로 2는 2로 3은 3로받음
+			// 0이 아스키코드 47이기때문에 그래서 scanner쓰는거임 타입변환시키고 값입력 변환시킨값나와서
 			if (keyCod == 49) {// "1"
 				speed++;
 				System.out.println("현재 속도=" + speed);
