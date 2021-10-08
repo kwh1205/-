@@ -3,6 +3,7 @@ package Verify;
 import java.util.Scanner;
 
 public class BankAppilcation {
+
 	private static Account[] accountArray = new Account[100];
 	private static Scanner scanner = new Scanner(System.in);
 
