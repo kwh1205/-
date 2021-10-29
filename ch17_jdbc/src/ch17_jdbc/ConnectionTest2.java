@@ -2,8 +2,10 @@ package ch17_jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class connectTest {
+public class ConnectionTest2 {
 	public static void main(String[] args) {
 	       String url ="jdbc:oracle:thin:@localhost:1521:xe";
 	       String userid="madang";
@@ -25,6 +27,25 @@ public class connectTest {
 	    	       if(con!=null) {
 	    	    	   System.out.println("데이터베이스 연결 성공...");
 	    	       }
+	    	  //쿼리객체 생성
+	    	   Statement stmt = null;
+	    	   ResultSet rs=null;
+	    	   //db연결정보로 쿼리객체 생성
+	    	   stmt = con.createStatement();
+	    	   //실행할 쿼리문
+	    	   String sql ="select bookid, bookname, publisher, price from book order by bookid";
+	    	   //DBMS로 쿼리문 전송 후 결과 받기
+	    	   rs = stmt.executeQuery(sql);
+	    	   //결과로 넘어온 ResultSet을 한 행씩 추출하여 처리하기
+	    	   while(rs.next()) {
+	    		    int bookid =rs.getInt("bookid");
+	    		    String bookname=rs.getString("bookname");
+	    		    String publisher=rs.getString("publisher");
+	    		    int price =rs.getInt("price");
+	    		    System.out.println(bookid+"|"+bookname+"|"+publisher+"|"+price); 
+	    	   }
+	    	   //자원해제
+	    	   con.close();
 	       }catch(Exception e) {
 	    	   e.printStackTrace();
 	       }
